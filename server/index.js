@@ -31,4 +31,6 @@ var userController = require("./userController.js");
 
 
 
-app.listen(config.port, console.log("you are now connected on " + config.port));
+app.listen(config.port, '0.0.0.0', function() {
+  console.log('Listening to port:  ' + config.port);
+});
