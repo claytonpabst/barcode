@@ -11,7 +11,8 @@ class Home extends Component {
     super(props);
     this.state = {
       delay: 500,
-      result: "No result"
+      result: "No result",
+      qrValue:"",
     };
   }
 
@@ -29,9 +30,11 @@ class Home extends Component {
   render() {
     return (
       <div className="home">
+        <p>This Input will create a QR code that holds the string value typed out.</p>
+        <input placeholder="Type Here" style={{width:"200px", height:"30px"}} onChange={(e) => this.setState({qrValue: e.target.value})}/>
         <QRCode
           style={{width:256}}
-          value={3878474}
+          value={this.state.qrValue}
         />
         <QRReader
           delay={this.state.delay}
